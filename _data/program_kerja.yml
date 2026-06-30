@@ -1,0 +1,29 @@
+bidang:
+  - nama: Kepemudaan & Olahraga
+    icon: sports_soccer
+    program:
+      - nama: Turnamen Antar RT
+        deskripsi: Kompetisi olahraga tahunan antar RT.
+      - nama: Pelatihan Kepemimpinan Pemuda
+        deskripsi: Workshop kepemimpinan untuk pemuda desa.
+  - nama: Kesejahteraan Sosial
+    icon: volunteer_activism
+    program:
+      - nama: Bakti Sosial Bulanan
+        deskripsi: Kegiatan sosial rutin setiap bulan.
+      - nama: Santunan Anak Yatim
+        deskripsi: Pemberian santunan di hari besar keagamaan.
+  - nama: Seni & Budaya
+    icon: palette
+    program:
+      - nama: Festival Budaya Desa
+        deskripsi: Pementasan seni budaya lokal.
+      - nama: Sanggar Seni Remaja
+        deskripsi: Wadah pengembangan bakat seni.
+  - nama: Lingkungan Hidup
+    icon: eco
+    program:
+      - nama: Kerja Bakti Lingkungan
+        deskripsi: Pembersihan lingkungan mingguan.
+      - nama: Bank Sampah
+        deskripsi: Program daur ulang sampah.
