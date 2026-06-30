@@ -1,0 +1,73 @@
+// MD3 Buttons
+.md3-button {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .75rem 1.5rem; border-radius: var(--md-radius-xl);
+  font-weight: 600; font-size: .95rem; border: none; cursor: pointer;
+  transition: all .2s; font-family: inherit; text-decoration: none;
+  .material-symbols-rounded { font-size: 1.1rem; }
+
+  &.filled {
+    background: var(--md-primary); color: var(--md-on-primary);
+    box-shadow: var(--md-elevation-1);
+    &:hover { box-shadow: var(--md-elevation-2); filter: brightness(1.05); }
+  }
+  &.tonal {
+    background: var(--md-secondary-container); color: var(--md-on-secondary-container);
+    &:hover { filter: brightness(.95); }
+  }
+  &.outlined {
+    background: transparent; color: var(--md-primary);
+    border: 1px solid var(--md-outline);
+    &:hover { background: var(--md-surface-2); }
+  }
+  &.text {
+    background: transparent; color: var(--md-primary); padding: .5rem 1rem;
+    &:hover { background: var(--md-surface-2); }
+  }
+}
+
+// MD3 Chip
+.md3-chip {
+  display: inline-flex; align-items: center; gap: .25rem;
+  padding: .35rem .85rem; border-radius: var(--md-radius-xl);
+  background: var(--md-surface-2); color: var(--md-on-surface);
+  font-size: .8rem; font-weight: 500; border: 1px solid var(--md-outline-variant);
+  transition: all .2s;
+  &.small { padding: .2rem .6rem; font-size: .75rem; }
+  &:hover { background: var(--md-primary-container); color: var(--md-on-primary-container); border-color: transparent; }
+}
+
+// MD3 Surface
+.md3-surface-1 { background: var(--md-surface-1); box-shadow: var(--md-elevation-1); border-radius: var(--md-radius-lg); }
+.md3-surface-2 { background: var(--md-surface-2); border-radius: var(--md-radius-lg); }
+
+// Icon Button
+.icon-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent; border: none; cursor: pointer;
+  color: var(--md-on-surface-variant); transition: background .2s;
+  &:hover { background: var(--md-surface-2); }
+}
+
+// Tabs
+.md3-tabs { display: flex; gap: .5rem; flex-wrap: wrap; }
+.md3-tab {
+  padding: .6rem 1.2rem; border-radius: var(--md-radius-xl);
+  color: var(--md-on-surface-variant); font-weight: 500;
+  border: 1px solid transparent; transition: all .2s;
+  &.active, &:hover {
+    background: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+  }
+}
+
+// Text gradient
+.text-gradient {
+  background: linear-gradient(135deg, var(--md-primary), var(--md-secondary));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
