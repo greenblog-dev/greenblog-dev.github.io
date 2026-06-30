@@ -1,0 +1,21 @@
+{% if page.comments != false and site.giscus.repo %}
+<section class="comments" aria-label="Komentar">
+  <h2 class="comments-title">
+    <span class="material-symbols-rounded">forum</span> Diskusi
+  </h2>
+  <div class="giscus-wrapper md3-surface-2"></div>
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ site.giscus.repo }}"
+    data-repo-id="{{ site.giscus.repo_id }}"
+    data-category="{{ site.giscus.category }}"
+    data-category-id="{{ site.giscus.category_id }}"
+    data-mapping="{{ site.giscus.mapping }}"
+    data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
+    data-emit-metadata="{{ site.giscus.emit_metadata }}"
+    data-theme="{{ site.giscus.theme }}"
+    data-lang="id"
+    crossorigin="anonymous"
+    async>
+  </script>
+</section>
+{% endif %}
