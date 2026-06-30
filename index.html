@@ -1,0 +1,70 @@
+---
+layout: default
+title: Beranda
+description: Portal resmi Karang Taruna Desa Sejahtera — berita, kegiatan, program kerja, dan informasi pemuda.
+---
+
+<section class="hero md3-surface-1">
+  <div class="hero-inner">
+    <span class="hero-badge md3-chip">
+      <span class="material-symbols-rounded">eco</span> Pemuda Berkarya, Desa Berjaya
+    </span>
+    <h1 class="hero-title">Selamat Datang di <span class="text-gradient">Karang Taruna</span></h1>
+    <p class="hero-subtitle">Organisasi sosial wadah pengembangan generasi muda yang tumbuh atas dasar kesadaran dan tanggung jawab bersama di Desa Sejahtera.</p>
+    <div class="hero-actions">
+      <a href="{{ '/about/' | relative_url }}" class="md3-button filled">
+        <span class="material-symbols-rounded">info</span> Tentang Kami
+      </a>
+      <a href="{{ '/program-kerja/' | relative_url }}" class="md3-button tonal">
+        <span class="material-symbols-rounded">task_alt</span> Program Kerja
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="latest-title">
+  <div class="section-header">
+    <h2 id="latest-title" class="section-title">
+      <span class="material-symbols-rounded">newspaper</span> Berita Terbaru
+    </h2>
+    <a href="{{ '/berita/' | relative_url }}" class="md3-button text">Lihat Semua <span class="material-symbols-rounded">arrow_forward</span></a>
+  </div>
+
+  <div id="articles-grid" class="articles-grid">
+    {% include skeleton.html %}
+  </div>
+
+  <div id="infinite-sentinel" class="infinite-sentinel" aria-hidden="true"></div>
+  <div id="load-status" class="load-status" hidden>
+    <span class="material-symbols-rounded spin">progress_activity</span> Memuat artikel...
+  </div>
+</section>
+
+<section class="section features">
+  <h2 class="section-title center">
+    <span class="material-symbols-rounded">hub</span> Jelajahi Portal Kami
+  </h2>
+  <div class="features-grid">
+    {% for item in site.data.navigation.main offset:1 limit:8 %}
+      <a href="{{ item.url | relative_url }}" class="feature-card md3-surface-1">
+        <span class="material-symbols-rounded feature-icon">{{ item.icon }}</span>
+        <h3>{{ item.title }}</h3>
+        <p>Menuju halaman {{ item.title | downcase }}.</p>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.title | jsonify }},
+  "url": {{ site.url | jsonify }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site.url }}/search/?q={query}",
+    "query-input": "required name=query"
+  }
+}
+</script>
