@@ -1,0 +1,31 @@
+<article class="article-card md3-surface-1" itemscope itemtype="https://schema.org/Article">
+  <a href="{{ include.post.url | relative_url }}" class="card-media" aria-hidden="true" tabindex="-1">
+    {% if include.post.image %}
+      <img src="{{ include.post.image | relative_url }}" alt="{{ include.post.title }}" loading="lazy" decoding="async" itemprop="image">
+    {% else %}
+      <div class="card-placeholder">
+        <span class="material-symbols-rounded">article</span>
+      </div>
+    {% endif %}
+  </a>
+  <div class="card-body">
+    {% if include.post.categories.size > 0 %}
+      <div class="card-chips">
+        {% for cat in include.post.categories limit: 2 %}
+          <a href="{{ '/kategori/' | append: cat | slugify | append: '/' | relative_url }}" class="md3-chip small">{{ cat }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <h3 class="card-title" itemprop="headline">
+      <a href="{{ include.post.url | relative_url }}" itemprop="url">{{ include.post.title }}</a>
+    </h3>
+    <p class="card-excerpt" itemprop="description">{{ include.post.excerpt | strip_html | truncate: 140 }}</p>
+    <div class="card-meta">
+      <time datetime="{{ include.post.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ include.post.date | date: "%d %b %Y" }}
+      </time>
+      <span>·</span>
+      <span>{{ include.post.content | number_of_words | divided_by: 200 | plus: 1 }} menit baca</span>
+    </div>
+  </div>
+</article>
