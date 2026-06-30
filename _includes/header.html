@@ -1,0 +1,34 @@
+<header class="md3-app-bar" role="banner">
+  <div class="app-bar-inner">
+    <button class="icon-btn menu-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="primary-nav">
+      <span class="material-symbols-rounded">menu</span>
+    </button>
+
+    <a href="{{ '/' | relative_url }}" class="brand" aria-label="{{ site.title }}">
+      <img src="{{ site.logo | relative_url }}" alt="" width="36" height="36" loading="eager">
+      <span class="brand-text">{{ site.title }}</span>
+    </a>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Navigasi utama">
+      <ul class="nav-list">
+        {% for item in site.data.navigation.main %}
+          <li>
+            <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+              <span class="material-symbols-rounded">{{ item.icon }}</span>
+              {{ item.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="app-bar-actions">
+      <button class="icon-btn" id="search-toggle" aria-label="Cari artikel" title="Cari (Ctrl+K)">
+        <span class="material-symbols-rounded">search</span>
+      </button>
+      <button class="icon-btn" id="theme-toggle" aria-label="Ganti tema" title="Ganti tema">
+        <span class="material-symbols-rounded theme-icon">dark_mode</span>
+      </button>
+    </div>
+  </div>
+</header>
