@@ -1,0 +1,35 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--md-on-surface);
+  background: var(--md-surface);
+  transition: background .3s, color .3s;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video, iframe { max-width: 100%; height: auto; display: block; }
+a { color: var(--md-primary); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--md-on-primary-container); }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--md-primary); color: var(--md-on-primary);
+  padding: .75rem 1rem; z-index: 9999; border-radius: 0 0 var(--md-radius-sm) 0;
+  &:focus { left: 0; }
+}
+
+::selection { background: var(--md-primary); color: var(--md-on-primary); }
+
+:focus-visible {
+  outline: 3px solid var(--md-primary);
+  outline-offset: 2px;
+  border-radius: var(--md-radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
