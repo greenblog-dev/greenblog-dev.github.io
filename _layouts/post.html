@@ -1,0 +1,54 @@
+---
+layout: default
+---
+{% assign words = page.content | number_of_words %}
+{% assign read_time = words | divided_by: 200 | plus: 1 %}
+
+<article class="post md3-surface-1" itemscope itemtype="https://schema.org/Article">
+  <header class="post-header">
+    {% if page.image %}
+      <img class="post-hero" src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="eager" itemprop="image">
+    {% endif %}
+
+    <div class="post-meta-container">
+      {% if page.categories.size > 0 %}
+        <div class="post-categories">
+          {% for cat in page.categories %}
+            <a href="{{ '/kategori/' | append: cat | slugify | append: '/' | relative_url }}" class="md3-chip">{{ cat }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+
+      <div class="post-meta" itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span class="material-symbols-rounded">person</span>
+        <span itemprop="name">{{ page.author | default: site.author }}</span>
+        <span class="material-symbols-rounded">calendar_today</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date: "%d %B %Y" }}
+        </time>
+        <span class="material-symbols-rounded">schedule</span>
+        <span>{{ read_time }} menit baca</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="post-content md3-typography" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+    <footer class="post-tags">
+      <span class="material-symbols-rounded">sell</span>
+      {% for tag in page.tags %}
+        <a href="{{ '/tags/' | append: tag | slugify | append: '/' | relative_url }}" class="md3-chip">#{{ tag }}</a>
+      {% endfor %}
+    </footer>
+  {% endif %}
+
+  {% include share.html %}
+  {% include comments.html %}
+</article>
+
+{% include schema.html %}
