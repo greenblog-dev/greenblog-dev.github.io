@@ -1,0 +1,86 @@
+title: Karang Taruna Desa Sejahtera
+description: Portal resmi Karang Taruna Desa Sejahtera — Pemuda Berkarya, Desa Berjaya.
+url: https://karangtaruna-sejahtera.github.io
+baseurl: ""
+lang: id-ID
+timezone: Asia/Jakarta
+
+# Author & Organization
+author: Karang Taruna Desa Sejahtera
+email: karangtaruna.sejahtera@gmail.com
+logo: /assets/img/logo.png
+
+# Social
+social:
+  facebook: https://facebook.com/karangtaruna.sejahtera
+  instagram: https://instagram.com/karangtaruna.sejahtera
+  youtube: https://youtube.com/@karangtaruna.sejahtera
+  twitter: https://twitter.com/karangtaruna
+  whatsapp: https://wa.me/6281234567890
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /berita/:year/:month/:day/:title/
+paginate: 6
+paginate_path: "/berita/page:num/"
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+  auto_ids: true
+  toc_levels: 1..3
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-gist
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: "Redaksi Karang Taruna"
+      comments: true
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Giscus
+giscus:
+  repo: karangtaruna-sejahtera/web
+  repo_id: "R_xxxxx"
+  category: "Announcements"
+  category_id: "DIC_xxxxx"
+  mapping: pathname
+  reactions_enabled: 1
+  emit_metadata: 0
+  theme: preferred_color_scheme
+  lang: id
+
+# SEO
+twitter:
+  username: karangtaruna
+facebook:
+  publisher: https://facebook.com/karangtaruna.sejahtera
