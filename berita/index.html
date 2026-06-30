@@ -1,0 +1,38 @@
+---
+layout: default
+title: Berita
+permalink: /berita/
+pagination:
+  enabled: true
+---
+
+<section class="section">
+  <header class="page-header">
+    <h1 class="page-title">Berita & Artikel</h1>
+    <p class="page-subtitle">Informasi terbaru seputar kegiatan Karang Taruna.</p>
+  </header>
+
+  <div class="filter-bar">
+    <div class="md3-tabs">
+      <a href="{{ '/kategori/' | relative_url }}" class="md3-tab">Kategori</a>
+      <a href="{{ '/tags/' | relative_url }}" class="md3-tab">Tag</a>
+      <a href="{{ '/arsip/' | relative_url }}" class="md3-tab">Arsip</a>
+    </div>
+  </div>
+
+  <div class="articles-grid">
+    {% for post in paginator.posts %}
+      {% include article-card.html post=post %}
+    {% endfor %}
+  </div>
+
+  <nav class="pagination" aria-label="Paginasi">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="md3-button outlined">← Sebelumnya</a>
+    {% endif %}
+    <span class="page-info">Halaman {{ paginator.page }} dari {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="md3-button outlined">Selanjutnya →</a>
+    {% endif %}
+  </nav>
+</section>
