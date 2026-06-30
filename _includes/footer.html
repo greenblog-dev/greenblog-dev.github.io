@@ -1,0 +1,46 @@
+<footer class="md3-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3 class="footer-title">{{ site.title }}</h3>
+      <p class="footer-about">{{ site.description }}</p>
+      <div class="social-links">
+        {% for s in site.data.social %}
+          <a href="{{ s.url }}" class="social-icon" aria-label="{{ s.name }}" target="_blank" rel="noopener">
+            <span class="material-symbols-rounded">{{ s.icon }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Tautan Cepat</h4>
+      <ul class="footer-links">
+        {% for item in site.data.navigation.main limit: 6 %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul class="footer-contact">
+        <li><span class="material-symbols-rounded">location_on</span> Jl. Pemuda No. 17, Desa Sejahtera</li>
+        <li><span class="material-symbols-rounded">mail</span> {{ site.email }}</li>
+        <li><span class="material-symbols-rounded">call</span> +62 812-3456-7890</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Langganan</h4>
+      <p>Dapatkan informasi terbaru langsung di email Anda.</p>
+      <a href="{{ '/feed.xml' | relative_url }}" class="md3-button outlined">
+        <span class="material-symbols-rounded">rss_feed</span> RSS Feed
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title }}. Seluruh hak cipta dilindungi.</p>
+    <p>Dibangun dengan ❤️ menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> & <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>. By Ahla Wisnu</p>
+  </div>
+</footer>
