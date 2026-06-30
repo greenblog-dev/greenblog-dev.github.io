@@ -1,0 +1,72 @@
+// MD3 Color Tokens — Green/Teal Nature Theme
+:root,
+[data-theme="light"] {
+  --md-primary: #2E7D32;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #C8E6C9;
+  --md-on-primary-container: #1B5E20;
+
+  --md-secondary: #00897B;
+  --md-on-secondary: #FFFFFF;
+  --md-secondary-container: #B2DFDB;
+  --md-on-secondary-container: #004D40;
+
+  --md-tertiary: #689F38;
+  --md-tertiary-container: #DCEDC8;
+
+  --md-surface: #F8FBF5;
+  --md-surface-1: #FFFFFF;
+  --md-surface-2: #F1F7EC;
+  --md-surface-3: #E8F0E2;
+  --md-surface-variant: #DCE5D6;
+
+  --md-on-surface: #1A1C19;
+  --md-on-surface-variant: #44483E;
+  --md-outline: #74796D;
+  --md-outline-variant: #C4C8BA;
+
+  --md-error: #BA1A1A;
+  --md-shadow: rgba(0, 0, 0, 0.08);
+  --md-scrim: rgba(0, 0, 0, 0.4);
+
+  --md-elevation-1: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  --md-elevation-2: 0 3px 6px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+  --md-elevation-3: 0 8px 20px rgba(0,0,0,.10), 0 4px 8px rgba(0,0,0,.05);
+
+  --md-radius-sm: 8px;
+  --md-radius-md: 12px;
+  --md-radius-lg: 16px;
+  --md-radius-xl: 28px;
+
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --container: 1200px;
+  --gutter: 1.5rem;
+}
+
+[data-theme="dark"] {
+  --md-primary: #81C784;
+  --md-on-primary: #0A3810;
+  --md-primary-container: #1B5E20;
+  --md-on-primary-container: #C8E6C9;
+
+  --md-secondary: #4DB6AC;
+  --md-on-secondary: #00332C;
+  --md-secondary-container: #004D40;
+  --md-on-secondary-container: #B2DFDB;
+
+  --md-surface: #0F1B15;
+  --md-surface-1: #15201A;
+  --md-surface-2: #1A2820;
+  --md-surface-3: #203028;
+  --md-surface-variant: #2A3A30;
+
+  --md-on-surface: #E3E3DC;
+  --md-on-surface-variant: #C4C8BA;
+  --md-outline: #8E9386;
+  --md-outline-variant: #44483E;
+
+  --md-shadow: rgba(0, 0, 0, 0.4);
+  --md-elevation-1: 0 1px 3px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.2);
+  --md-elevation-2: 0 3px 6px rgba(0,0,0,.35), 0 2px 4px rgba(0,0,0,.25);
+  --md-elevation-3: 0 8px 20px rgba(0,0,0,.5), 0 4px 8px rgba(0,0,0,.3);
+}
