@@ -1,0 +1,26 @@
+---
+layout: default
+title: Halaman Tidak Ditemukan
+permalink: /404.html
+---
+<section class="error-page md3-surface-1">
+  <div class="error-content">
+    <span class="error-icon material-symbols-rounded">forest</span>
+    <h1>404</h1>
+    <h2>Oops! Halaman yang Anda cari tidak ada</h2>
+    <p>Mungkin halaman telah dipindahkan atau URL yang Anda ketik salah. Mari kembali ke jalur yang benar.</p>
+    <div class="error-actions">
+      <a href="{{ '/' | relative_url }}" class="md3-button filled">
+        <span class="material-symbols-rounded">home</span> Kembali ke Beranda
+      </a>
+      <button class="md3-button tonal" id="open-search-404">
+        <span class="material-symbols-rounded">search</span> Cari Artikel
+      </button>
+    </div>
+  </div>
+</section>
+<script>
+  document.getElementById('open-search-404')?.addEventListener('click', () => {
+    document.getElementById('search-toggle')?.click();
+  });
+</script>
