@@ -1,0 +1,20 @@
+<div class="share-bar" aria-label="Bagikan artikel">
+  <span class="share-label">Bagikan:</span>
+  {% assign post_url = page.url | absolute_url %}
+  {% assign post_title = page.title | url_encode %}
+  <a class="icon-btn share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{ post_url }}" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+    <span class="material-symbols-rounded">facebook</span>
+  </a>
+  <a class="icon-btn share-btn" href="https://twitter.com/intent/tweet?url={{ post_url }}&text={{ post_title }}" target="_blank" rel="noopener" aria-label="Twitter" title="Twitter">
+    <span class="material-symbols-rounded">close</span>
+  </a>
+  <a class="icon-btn share-btn" href="https://wa.me/?text={{ post_title }}%20{{ post_url }}" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+    <span class="material-symbols-rounded">chat</span>
+  </a>
+  <a class="icon-btn share-btn" href="https://t.me/share/url?url={{ post_url }}&text={{ post_title }}" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
+    <span class="material-symbols-rounded">send</span>
+  </a>
+  <button class="icon-btn share-btn" id="copy-link" aria-label="Salin tautan" title="Salin tautan">
+    <span class="material-symbols-rounded">content_copy</span>
+  </button>
+</div>
