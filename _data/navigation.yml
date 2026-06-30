@@ -1,0 +1,28 @@
+main:
+  - title: Beranda
+    url: /
+    icon: home
+  - title: Profil
+    url: /about/
+    icon: info
+  - title: Struktur
+    url: /struktur/
+    icon: account_tree
+  - title: Program Kerja
+    url: /program-kerja/
+    icon: task_alt
+  - title: Berita
+    url: /berita/
+    icon: newspaper
+  - title: Kegiatan
+    url: /kegiatan/
+    icon: event
+  - title: Galeri
+    url: /galeri/
+    icon: photo_library
+  - title: Dokumen
+    url: /dokumen/
+    icon: folder
+  - title: Kontak
+    url: /kontak/
+    icon: mail
