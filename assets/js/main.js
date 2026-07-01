@@ -27,39 +27,60 @@
     applyTheme(current === 'dark' ? 'light' : 'dark');
   });
 
-  // ---------- MOBILE MENU (FIXED) ----------
+   // Sync mobile theme toggle
+const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+themeToggleMobile?.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+  // Sync icon di mobile drawer
+  const mobileIcon = themeToggleMobile.querySelector('.theme-icon');
+  if (mobileIcon) {
+    mobileIcon.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light_mode' : 'dark_mode';
+  }
+});
+
+// Sync icon mobile saat theme berubah dari desktop
+const origApplyTheme = applyTheme;
+// (Sudah otomatis karena themeIcon di desktop & mobile sama-sama diupdate via applyTheme jika kita modifikasi sedikit)
+
+   // ============================================================
+//  MOBILE MENU + DESKTOP SCROLL NAV
+// ============================================================
 const menuToggle = document.querySelector('.menu-toggle');
 const menuToggleIcon = menuToggle?.querySelector('.material-symbols-rounded');
 const primaryNav = document.getElementById('primary-nav');
 const navBackdrop = document.getElementById('nav-backdrop');
+const navScrollWrapper = primaryNav?.querySelector('.nav-scroll-wrapper');
+const navFadeLeft = document.getElementById('nav-fade-left');
+const navFadeRight = document.getElementById('nav-fade-right');
+const navScrollLeftBtn = document.getElementById('nav-scroll-left');
+const navScrollRightBtn = document.getElementById('nav-scroll-right');
 
+// ---------- MOBILE MENU ----------
 const openMenu = () => {
-  primaryNav?.classList.add('open');
+  if (!primaryNav) return;
+  primaryNav.classList.add('open');
   navBackdrop?.classList.add('visible');
   menuToggle?.setAttribute('aria-expanded', 'true');
   if (menuToggleIcon) menuToggleIcon.textContent = 'close';
-  document.body.style.overflow = 'hidden'; // kunci scroll
+  document.body.style.overflow = 'hidden';
 };
 
 const closeMenu = () => {
-  primaryNav?.classList.remove('open');
+  if (!primaryNav) return;
+  primaryNav.classList.remove('open');
   navBackdrop?.classList.remove('visible');
   menuToggle?.setAttribute('aria-expanded', 'false');
   if (menuToggleIcon) menuToggleIcon.textContent = 'menu';
   document.body.style.overflow = '';
 };
 
-const toggleMenu = () => {
-  if (primaryNav?.classList.contains('open')) closeMenu();
-  else openMenu();
-};
-
 menuToggle?.addEventListener('click', (e) => {
   e.stopPropagation();
-  toggleMenu();
+  if (primaryNav?.classList.contains('open')) closeMenu();
+  else openMenu();
 });
 
-// Tutup saat klik backdrop
 navBackdrop?.addEventListener('click', closeMenu);
 
 // Tutup saat klik link di dalam menu
@@ -67,7 +88,7 @@ primaryNav?.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
-// Tutup saat klik di luar menu (desktop & mobile)
+// Tutup saat klik di luar (desktop safety)
 document.addEventListener('click', (e) => {
   if (!primaryNav?.contains(e.target) &&
       !menuToggle?.contains(e.target) &&
@@ -76,7 +97,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Tutup saat tekan ESC
+// ESC untuk tutup
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && primaryNav?.classList.contains('open')) {
     closeMenu();
@@ -84,7 +105,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Tutup otomatis saat resize ke desktop
+// Auto close saat resize ke desktop
 let resizeTimer;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
@@ -92,9 +113,56 @@ window.addEventListener('resize', () => {
     if (window.innerWidth > 768 && primaryNav?.classList.contains('open')) {
       closeMenu();
     }
+    updateDesktopScrollIndicators();
   }, 150);
 });
 
+// ---------- DESKTOP HORIZONTAL SCROLL ----------
+const updateDesktopScrollIndicators = () => {
+  if (!navScrollWrapper || window.innerWidth <= 768) {
+    navFadeLeft?.classList.remove('visible');
+    navFadeRight?.classList.remove('visible');
+    navScrollLeftBtn?.classList.remove('visible');
+    navScrollRightBtn?.classList.remove('visible');
+    return;
+  }
+
+  const { scrollLeft, scrollWidth, clientWidth } = navScrollWrapper;
+  const canScrollLeft = scrollLeft > 5;
+  const canScrollRight = scrollLeft + clientWidth < scrollWidth - 5;
+
+  navFadeLeft?.classList.toggle('visible', canScrollLeft);
+  navFadeRight?.classList.toggle('visible', canScrollRight);
+  navScrollLeftBtn?.classList.toggle('visible', canScrollLeft);
+  navScrollRightBtn?.classList.toggle('visible', canScrollRight);
+};
+
+// Scroll buttons
+navScrollLeftBtn?.addEventListener('click', () => {
+  navScrollWrapper?.scrollBy({ left: -200, behavior: 'smooth' });
+});
+
+navScrollRightBtn?.addEventListener('click', () => {
+  navScrollWrapper?.scrollBy({ left: 200, behavior: 'smooth' });
+});
+
+// Update indicators saat scroll
+navScrollWrapper?.addEventListener('scroll', updateDesktopScrollIndicators, { passive: true });
+
+// Mouse wheel horizontal scroll di desktop
+navScrollWrapper?.addEventListener('wheel', (e) => {
+  if (window.innerWidth <= 768) return;
+  if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+    e.preventDefault();
+    navScrollWrapper.scrollBy({ left: e.deltaY, behavior: 'auto' });
+  }
+}, { passive: false });
+
+// Initial check
+updateDesktopScrollIndicators();
+setTimeout(updateDesktopScrollIndicators, 100);
+
+   
   // ---------- BACK TO TOP ----------
   const btt = document.getElementById('back-to-top');
   const onScroll = () => {
