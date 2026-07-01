@@ -311,3 +311,39 @@
   text-align: center; padding: 2rem; color: var(--md-on-surface-variant);
   display: flex; align-items: center; justify-content: center; gap: .5rem;
 }
+
+// Category/Tag detail header
+.category-header {
+  margin-bottom: 2rem;
+  
+  .back-btn {
+    margin-bottom: 1rem;
+    padding-left: 0;
+  }
+  
+  .category-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.75rem;
+    margin: 0.5rem 0;
+    
+    .material-symbols-rounded {
+      color: var(--md-primary);
+      font-size: 2rem;
+    }
+  }
+  
+  .category-count {
+    color: var(--md-on-surface-variant);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+}
+
+.no-posts, .error {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--md-on-surface-variant);
+  font-style: italic;
+}
