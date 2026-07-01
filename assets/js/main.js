@@ -145,27 +145,37 @@ themeToggleMobile?.addEventListener('click', () => {
     let loading = false;
 
     const renderCard = (p) => {
-      const cats = (p.categories || []).slice(0, 2).map(c =>
-        `<a href="/kategori/${slugify(c)}/" class="md3-chip small">${c}</a>`).join('');
-      const excerpt = (p.content || '').replace(/<[^>]+>/g, '').slice(0, 140);
-      const words = (p.content || '').replace(/<[^>]+>/g, '').split(/\s+/).length;
-      const readTime = Math.max(1, Math.floor(words / 200));
-      const date = new Date(p.date).toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' });
-      const media = p.image
-        ? `<img src="${p.image}" alt="${escapeHtml(p.title)}" loading="lazy" decoding="async">`
-        : `<div class="card-placeholder"><span class="material-symbols-rounded">article</span></div>`;
+  // 🔥 FIX: Link kategori dengan format ?c=
+  const cats = (p.categories || []).slice(0, 2).map(c => {
+  const slug = slugify(c);
+  return `<a href="/kategori/?c=${slug}" class="md3-chip small">${escapeHtml(c)}</a>`;
+}).join('');
 
-      return `
-        <article class="article-card md3-surface-1">
-          <a href="${p.url}" class="card-media" aria-hidden="true" tabindex="-1">${media}</a>
-          <div class="card-body">
-            ${cats ? `<div class="card-chips">${cats}</div>` : ''}
-            <h3 class="card-title"><a href="${p.url}">${escapeHtml(p.title)}</a></h3>
-            <p class="card-excerpt">${escapeHtml(excerpt)}...</p>
-            <div class="card-meta"><time>${date}</time><span>·</span><span>${readTime} menit baca</span></div>
-          </div>
-        </article>`;
-    };
+  const excerpt = (p.content || '').replace(/<[^>]+>/g, '').slice(0, 140);
+  const words = (p.content || '').replace(/<[^>]+>/g, '').split(/\s+/).length;
+  const readTime = Math.max(1, Math.floor(words / 200));
+  const date = new Date(p.date).toLocaleDateString('id-ID', { 
+    day: '2-digit', month: 'short', year: 'numeric' 
+  });
+  const media = p.image
+    ? `<img src="${p.image}" alt="${escapeHtml(p.title)}" loading="lazy" decoding="async">`
+    : `<div class="card-placeholder"><span class="material-symbols-rounded">article</span></div>`;
+
+  return `
+    <article class="article-card md3-surface-1">
+      <a href="${p.url}" class="card-media" aria-hidden="true" tabindex="-1">${media}</a>
+      <div class="card-body">
+        ${cats ? `<div class="card-chips">${cats}</div>` : ''}
+        <h3 class="card-title"><a href="${p.url}">${escapeHtml(p.title)}</a></h3>
+        <p class="card-excerpt">${escapeHtml(excerpt)}...</p>
+        <div class="card-meta">
+          <time>${date}</time>
+          <span>·</span>
+          <span>${readTime} menit baca</span>
+        </div>
+      </div>
+    </article>`;
+};
 
     const slugify = (s) => s.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
 
