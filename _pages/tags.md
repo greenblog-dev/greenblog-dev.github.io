@@ -4,9 +4,12 @@ title: Tag
 permalink: /tags/
 description: Jelajahi artikel berdasarkan tag.
 ---
+
+
 {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for year in postsByYear %}
-  <section class="archive-year">
+
+<div class="tags-cloud">
     <h2 class="year-title"><span class="material-symbols-rounded">calendar_month</span> {{ year.name }}</h2>
     <ul class="archive-list">
     {% for post in year.items %}
@@ -21,3 +24,4 @@ description: Jelajahi artikel berdasarkan tag.
     </ul>
   </section>
 {% endfor %}
+</div>
