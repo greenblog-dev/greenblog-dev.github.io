@@ -22,7 +22,7 @@ Berdasarkan tinjauan saya, terdapat beberapa alasan utama mengapa sistem ini mer
 Sebagai individu yang sangat mempercayai kekuatan narasi digital untuk perubahan sosial, saya mengundang seluruh jajaran pengurus Karang Taruna Wonolobo untuk meninjau secara langsung potensi yang ditawarkan oleh ekosistem ini.
 Anda dapat mengeksplorasi antarmuka pengguna serta meninjau struktur pengembangan sistem ini melalui tautan resmi di bawah ini:
 > **Demonstrasi Platform:** https://greenblog-dev.github.io
-> **Kode Sumber (*Source Code*):** Repositori GitHub Greenblog-Dev
+> **Kode Sumber (*Source Code*):** https://github.com/greenblog-dev/greenblog-dev.github.io Repositori GitHub Greenblog-Dev
 > 
 Mari jadikan teknologi sebagai jembatan untuk melukiskan setiap dedikasi dan karya nyata dari desa. Sudah saatnya suara pemuda Wonolobo tidak hanya bergema di batas-batas wilayah administrasi, tetapi juga menginspirasi masyarakat luas melalui literasi digital yang terpadu.
 Teruslah berkarya dan berinovasi. Kemajuan Wonolobo berada di tangan para pemudanya yang tanggap terhadap tuntutan zaman.
