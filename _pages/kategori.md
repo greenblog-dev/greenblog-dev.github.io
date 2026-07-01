@@ -9,16 +9,17 @@ description: Jelajahi artikel berdasarkan kategori.
   <!-- View 1: Index semua kategori (default) -->
   <div id="kategori-index">
     <div class="kategori-grid">
-      {% assign cats = site.categories | sort %}
-      {% for cat in cats %}
-        {% assign name = cat | first %}
-        {% assign posts = cat | last %}
-        <a href="{{ '/kategori/?c=' | append: name | slugify | relative_url }}" class="kategori-card md3-surface-1" data-category="{{ name | slugify }}">
-          <span class="material-symbols-rounded">folder</span>
-          <h3>{{ name }}</h3>
-          <span class="count">{{ posts.size }} artikel</span>
-        </a>
-      {% endfor %}
+     {% assign cats = site.categories | sort %}
+{% for cat in cats %}
+  {% assign name = cat | first %}
+  {% assign posts = cat | last %}
+  {% assign name_slug = name | slugify %}
+  <a href="{{ '/kategori/?c=' | append: name_slug | relative_url }}" class="kategori-card md3-surface-1" data-category="{{ name_slug }}">
+    <span class="material-symbols-rounded">folder</span>
+    <h3>{{ name }}</h3>
+    <span class="count">{{ posts.size }} artikel</span>
+  </a>
+{% endfor %}
     </div>
   </div>
 
