@@ -33,7 +33,13 @@
     color: var(--md-on-primary-container);
   }
 }
-.app-bar-actions { display: flex; gap: .25rem; }
+
+// Cari bagian ini dan tambahkan margin-left: auto;
+.app-bar-actions { 
+  display: flex; 
+  gap: .25rem; 
+  margin-left: auto; /* PENTING: Mendorong tombol search & dark mode ke paling kanan */
+}
 .menu-toggle { display: none; }
 
 @media (max-width: 960px) {
