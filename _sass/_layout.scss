@@ -1,25 +1,13 @@
 // App Bar
 .md3-app-bar {
-  position: fixed; /* Ubah dari sticky ke fixed */
-  top: 0; 
-  left: 0;
-  right: 0; /* Agar melebar penuh */
-  z-index: 9999; /* Naikkan z-index agar pasti di atas */
+  position: sticky !important; 
+  top: 0 !important;
+  z-index: 9999 !important;
   background: var(--md-surface-1);
   border-bottom: 1px solid var(--md-outline-variant);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  
-  /* PENTING: Jika pakai fixed, tinggi navbar harus diketahui */
-  height: 64px; /* Sesuaikan dengan tinggi asli app bar Anda */
-}
-
-/* TAMBAHKAN INI: Agar konten di bawahnya tidak tertutup navbar */
-.main-content { 
-  /* Ganti .main-content dengan class pembungkus konten utama Anda */
-  padding-top: 64px; /* Harus SAMA dengan tinggi .md3-app-bar */
-}
-
+} /* Jangan lupa kurung penutup */
 
 .app-bar-inner {
   max-width: var(--container); margin: 0 auto;
