@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Pengumuman
-permalink: /pengumuman/
+permalink: /kategori/?c=pengumuman/
 ---
 <div class="articles-grid">
 {% for post in site.categories.pengumuman limit: 10 %}
