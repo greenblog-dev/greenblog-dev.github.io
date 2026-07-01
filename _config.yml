@@ -1,4 +1,4 @@
-title: Karang Taruna Desa Sejahtera
+title: Karang Taruna Dusun Wonolobo
 description: Portal resmi Karang Taruna Desa Sejahtera — Pemuda Berkarya, Desa Berjaya.
 url: https://greenblog-dev.github.io
 baseurl: ""
@@ -6,17 +6,17 @@ lang: id-ID
 timezone: Asia/Jakarta
 
 # Author & Organization
-author: Karang Taruna Desa Sejahtera
-email: karangtaruna.sejahtera@gmail.com
+author: Karang Taruna
+email: wisnudiary@gmail.com
 logo: /assets/img/logo.png
 
 # Social
 social:
-  facebook: https://facebook.com/karangtaruna.sejahtera
-  instagram: https://instagram.com/karangtaruna.sejahtera
-  youtube: https://youtube.com/@karangtaruna.sejahtera
-  twitter: https://twitter.com/karangtaruna
-  whatsapp: https://wa.me/6281234567890
+  facebook: https://facebook.com/yuna.arrr
+  instagram: https://instagram.com/awvr.verse
+  youtube: https://youtube.com/@ahladogital_ai
+  twitter: https://twitter.com/username
+  whatsapp: https://wa.me/6285875556123
 
 # Build
 markdown: kramdown
