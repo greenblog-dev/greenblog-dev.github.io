@@ -1,62 +1,27 @@
 <header class="md3-app-bar" role="banner">
   <div class="app-bar-inner">
-    <!-- Hamburger (mobile only) -->
-    <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="primary-nav">
+    <button class="icon-btn menu-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="primary-nav">
       <span class="material-symbols-rounded">menu</span>
     </button>
 
-    <!-- Brand -->
     <a href="{{ '/' | relative_url }}" class="brand" aria-label="{{ site.title }}">
       <img src="{{ site.logo | relative_url }}" alt="" width="36" height="36" loading="eager">
       <span class="brand-text">{{ site.title }}</span>
     </a>
 
-    <!-- Navigation -->
     <nav id="primary-nav" class="primary-nav" aria-label="Navigasi utama">
-      <!-- Mobile drawer header -->
-      <div class="nav-drawer-header">
-        <h2 class="nav-drawer-title">
-          <span class="material-symbols-rounded">eco</span>
-          Menu Navigasi
-        </h2>
-      </div>
-
-      <!-- Scrollable wrapper -->
-      <div class="nav-scroll-wrapper">
-        <ul class="nav-list">
-          {% for item in site.data.navigation.main %}
-            <li>
-              <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
-                <span class="material-symbols-rounded">{{ item.icon }}</span>
-                {{ item.title }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <!-- Mobile drawer footer -->
-      <div class="nav-drawer-footer">
-        <a href="{{ '/search/' | relative_url }}" class="md3-button text">
-          <span class="material-symbols-rounded">search</span> Cari
-        </a>
-        <button class="md3-button text" id="theme-toggle-mobile">
-          <span class="material-symbols-rounded theme-icon">dark_mode</span> Tema
-        </button>
-      </div>
-
-      <!-- Desktop scroll indicators -->
-      <div class="nav-fade left" id="nav-fade-left"></div>
-      <div class="nav-fade right" id="nav-fade-right"></div>
-      <button class="nav-scroll-btn left" id="nav-scroll-left" aria-label="Scroll kiri">
-        <span class="material-symbols-rounded">chevron_left</span>
-      </button>
-      <button class="nav-scroll-btn right" id="nav-scroll-right" aria-label="Scroll kanan">
-        <span class="material-symbols-rounded">chevron_right</span>
-      </button>
+      <ul class="nav-list">
+        {% for item in site.data.navigation.main %}
+          <li>
+            <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+              <span class="material-symbols-rounded">{{ item.icon }}</span>
+              {{ item.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </nav>
 
-    <!-- Actions -->
     <div class="app-bar-actions">
       <button class="icon-btn" id="search-toggle" aria-label="Cari artikel" title="Cari (Ctrl+K)">
         <span class="material-symbols-rounded">search</span>
@@ -67,6 +32,3 @@
     </div>
   </div>
 </header>
-
-<!-- Backdrop (hanya muncul saat menu mobile terbuka) -->
-<div class="nav-backdrop" id="nav-backdrop"></div>
