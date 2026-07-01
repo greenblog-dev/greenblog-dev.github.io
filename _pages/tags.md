@@ -10,13 +10,14 @@ description: Jelajahi artikel berdasarkan tag.
   <div id="tags-index">
     <div class="tags-cloud">
       {% assign tags = site.tags | sort %}
-      {% for tag in tags %}
-        {% assign name = tag | first %}
-        {% assign posts = tag | last %}
-        <a href="{{ '/tags/?t=' | append: name | slugify | relative_url }}" class="md3-chip" data-tag="{{ name | slugify }}">
-          #{{ name }} <span class="count">({{ posts.size }})</span>
-        </a>
-      {% endfor %}
+{% for tag in tags %}
+  {% assign name = tag | first %}
+  {% assign posts = tag | last %}
+  {% assign name_slug = name | slugify %}
+  <a href="{{ '/tags/?t=' | append: name_slug | relative_url }}" class="md3-chip" data-tag="{{ name_slug }}">
+    #{{ name }} <span class="count">({{ posts.size }})</span>
+  </a>
+{% endfor %}
     </div>
   </div>
 
