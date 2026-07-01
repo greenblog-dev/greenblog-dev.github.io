@@ -1,6 +1,6 @@
 // App Bar
 .md3-app-bar {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky; top: 0; z-index: 1000;
   background: var(--md-surface-1);
   border-bottom: 1px solid var(--md-outline-variant);
   backdrop-filter: blur(12px);
