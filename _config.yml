@@ -69,10 +69,10 @@ collections:
 
 # Giscus
 giscus:
-  repo: karangtaruna-sejahtera/web
-  repo_id: "R_xxxxx"
+  repo: greenblog-dev/greenblog-dev.github.io
+  repo_id: "R_kgDOTJonmg"
   category: "Announcements"
-  category_id: "DIC_xxxxx"
+  category_id: "DIC_kwDOTJonms4DAQNg"
   mapping: pathname
   reactions_enabled: 1
   emit_metadata: 0
