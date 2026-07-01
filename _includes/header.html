@@ -1,58 +1,27 @@
 <header class="md3-app-bar" role="banner">
   <div class="app-bar-inner">
-    <!-- 🔥 Hamburger (muncul di mobile saja via CSS) -->
-    <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="primary-nav">
+    <button class="icon-btn menu-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="primary-nav">
       <span class="material-symbols-rounded">menu</span>
     </button>
 
-    <!-- Brand -->
     <a href="{{ '/' | relative_url }}" class="brand" aria-label="{{ site.title }}">
       <img src="{{ site.logo | relative_url }}" alt="" width="36" height="36" loading="eager">
       <span class="brand-text">{{ site.title }}</span>
     </a>
 
-    <!-- Navigation (jadi drawer di mobile, horizontal di desktop) -->
     <nav id="primary-nav" class="primary-nav" aria-label="Navigasi utama">
-      
-      <!-- Header drawer (hanya tampil di mobile via CSS) -->
-      <div class="nav-drawer-header">
-        <img src="{{ site.logo | relative_url }}" alt="" width="44" height="44">
-        <div>
-          <h2 class="nav-drawer-title">{{ site.title }}</h2>
-          <p class="nav-drawer-subtitle">Pemuda Berkarya, Desa Berjaya</p>
-        </div>
-      </div>
-
-      <!-- 🔥 Scrollable wrapper (kunci agar menu bisa di-scroll) -->
-      <div class="nav-scroll-wrapper">
-        <ul class="nav-list">
-          {% for item in site.data.navigation.main %}
-            <li>
-              <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
-                <span class="material-symbols-rounded">{{ item.icon }}</span>
-                {{ item.title }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <!-- Footer drawer (hanya tampil di mobile via CSS) -->
-      <div class="nav-drawer-footer">
-        <a href="{{ '/search/' | relative_url }}" class="md3-button text">
-          <span class="material-symbols-rounded">search</span> Cari
-        </a>
-        <button class="md3-button text" id="theme-toggle-mobile" type="button">
-          <span class="material-symbols-rounded theme-icon">dark_mode</span> Tema
-        </button>
-      </div>
-
-      <!-- Desktop fade indicators (disembunyikan di mobile via CSS) -->
-      <div class="nav-fade left" id="nav-fade-left"></div>
-      <div class="nav-fade right" id="nav-fade-right"></div>
+      <ul class="nav-list">
+        {% for item in site.data.navigation.main %}
+          <li>
+            <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+              <span class="material-symbols-rounded">{{ item.icon }}</span>
+              {{ item.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </nav>
 
-    <!-- Actions -->
     <div class="app-bar-actions">
       <button class="icon-btn" id="search-toggle" aria-label="Cari artikel" title="Cari (Ctrl+K)">
         <span class="material-symbols-rounded">search</span>
@@ -63,6 +32,3 @@
     </div>
   </div>
 </header>
-
-<!-- 🔥 Backdrop — default hidden, muncul saat menu terbuka -->
-<div class="nav-backdrop" id="nav-backdrop"></div>
