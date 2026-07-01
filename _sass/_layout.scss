@@ -196,3 +196,41 @@
   background: linear-gradient(90deg, var(--md-primary), var(--md-secondary));
   width: 0; z-index: 1000; transition: width .1s;
 }
+
+
+/* TAMPILAN DESKTOP (> 960px) */
+@media (min-width: 961px) {
+  .menu-toggle {
+    /* Sembunyikan tombol hamburger di desktop */
+    display: none; 
+  }
+
+  .primary-nav {
+    /* Reset dari absolute (mobile) ke posisi normal */
+    position: static; 
+    height: auto;
+    transform: none; /* Hilangkan efek slide out mobile */
+    overflow: visible;
+    
+    /* Gunakan Flexbox untuk mensejajarkan menu secara horizontal */
+    display: flex;
+    align-items: center;
+    background: transparent; /* Hilangkan background khusus mobile jika ada */
+    padding: 0;
+  }
+
+  .nav-list {
+    /* Susun item menu menyamping (kiri ke kanan) */
+    display: flex; 
+    flex-direction: row; 
+    width: auto;
+    margin: 0;
+    padding: 0;
+    gap: 1rem; /* Jarak antar menu */
+  }
+
+  .brand-text {
+    /* Tampilkan kembali brand text jika sebelumnya disembunyikan */
+    display: block; 
+  }
+}
