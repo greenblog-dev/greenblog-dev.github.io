@@ -7,7 +7,7 @@
   border-bottom: 1px solid var(--md-outline-variant);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-} /* Jangan lupa kurung penutup */
+}
 
 .app-bar-inner {
   max-width: var(--container); margin: 0 auto;
@@ -39,11 +39,26 @@
 @media (max-width: 960px) {
   .menu-toggle { display: inline-flex; }
   .primary-nav {
-    position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
-    background: var(--md-surface-1); padding: 1rem;
-    transform: translateX(-100%); transition: transform .3s;
-    overflow-y: auto; justify-content: flex-start;
-    &.open { transform: translateX(0); }
+    // PERBAIKAN UTAMA:
+    // Mengubah fixed menjadi absolute karena efek backdrop-filter pada parent.
+    // top: 100% meletakkannya persis di bawah App Bar.
+    // height: calc(100vh - 100%) mengambil sisa tinggi layar dikurangi tinggi App Bar.
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    right: 0; 
+    height: calc(100vh - 100%);
+    background: var(--md-surface-1); 
+    padding: 1rem;
+    transform: translateX(-100%); 
+    transition: transform .3s;
+    overflow-y: auto; 
+    justify-content: flex-start;
+    z-index: 9998; 
+    
+    &.open { 
+      transform: translateX(0); 
+    }
   }
   .nav-list { flex-direction: column; width: 100%; }
   .nav-link { padding: .9rem 1rem; border-radius: var(--md-radius-md); }
