@@ -1,0 +1,219 @@
+// ============================================================
+//  GISCUS CUSTOM STYLES
+//  Override default Giscus theme untuk match dengan MD3
+// ============================================================
+
+.giscus,
+.giscus-frame {
+  width: 100%;
+  border: none;
+  font-family: var(--font-sans);
+}
+
+.giscus-wrapper {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--md-surface-2);
+  border-radius: var(--md-radius-lg);
+  border: 1px solid var(--md-outline-variant);
+}
+
+// ============================================================
+//  LIGHT MODE OVERRIDES
+// ============================================================
+[data-theme="light"] {
+  .giscus,
+  .giscus-frame,
+  .giscus-frame body {
+    color: var(--md-on-surface) !important;
+    background: var(--md-surface-2) !important;
+  }
+
+  .giscus-frame {
+    // Text utama
+    p, span, div, li, td, th {
+      color: var(--md-on-surface) !important;
+    }
+
+    // Link
+    a {
+      color: var(--md-primary) !important;
+      &:hover { color: var(--md-secondary) !important; }
+    }
+
+    // Heading
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--md-on-surface) !important;
+    }
+
+    // Code block
+    code, pre {
+      background: var(--md-surface-3) !important;
+      color: var(--md-on-surface) !important;
+      border: 1px solid var(--md-outline-variant) !important;
+    }
+
+    // Blockquote
+    blockquote {
+      border-left-color: var(--md-primary) !important;
+      background: var(--md-surface-3) !important;
+      color: var(--md-on-surface-variant) !important;
+    }
+
+    // Button
+    button, .btn {
+      color: var(--md-on-surface) !important;
+      background: var(--md-surface-3) !important;
+      border: 1px solid var(--md-outline-variant) !important;
+      
+      &:hover {
+        background: var(--md-primary-container) !important;
+        color: var(--md-on-primary-container) !important;
+        border-color: var(--md-primary) !important;
+      }
+    }
+
+    // Input/Textarea
+    textarea, input[type="text"], input[type="search"] {
+      color: var(--md-on-surface) !important;
+      background: var(--md-surface-1) !important;
+      border: 1px solid var(--md-outline-variant) !important;
+      
+      &:focus {
+        border-color: var(--md-primary) !important;
+        box-shadow: 0 0 0 3px var(--md-primary-container) !important;
+        outline: none !important;
+      }
+      
+      &::placeholder {
+        color: var(--md-on-surface-variant) !important;
+      }
+    }
+
+    // Comment body
+    .comment-body,
+    .markdown-body,
+    .comment-body p,
+    .markdown-body p {
+      color: var(--md-on-surface) !important;
+    }
+
+    // Timestamp
+    .timestamp, time, .age {
+      color: var(--md-on-surface-variant) !important;
+    }
+
+    // Reactions
+    .reaction-button, .reactions-button {
+      color: var(--md-on-surface-variant) !important;
+      background: var(--md-surface-3) !important;
+      border: 1px solid var(--md-outline-variant) !important;
+      
+      &:hover {
+        color: var(--md-primary) !important;
+        background: var(--md-primary-container) !important;
+        border-color: var(--md-primary) !important;
+      }
+      
+      &.reacted {
+        color: var(--md-on-primary-container) !important;
+        background: var(--md-primary-container) !important;
+        border-color: var(--md-primary) !important;
+      }
+    }
+
+    // Dropdown
+    select, .dropdown-menu {
+      color: var(--md-on-surface) !important;
+      background: var(--md-surface-1) !important;
+      border: 1px solid var(--md-outline-variant) !important;
+    }
+
+    // Table
+    table {
+      border-color: var(--md-outline-variant) !important;
+      
+      th, td {
+        border-color: var(--md-outline-variant) !important;
+        color: var(--md-on-surface) !important;
+      }
+      
+      th {
+        background: var(--md-surface-3) !important;
+      }
+    }
+
+    // Divider
+    hr {
+      border-color: var(--md-outline-variant) !important;
+    }
+
+    // Avatar
+    .avatar {
+      border-color: var(--md-outline-variant) !important;
+    }
+  }
+}
+
+// ============================================================
+//  DARK MODE OVERRIDES
+// ============================================================
+[data-theme="dark"] {
+  .giscus,
+  .giscus-frame,
+  .giscus-frame body {
+    color: var(--md-on-surface) !important;
+    background: var(--md-surface-2) !important;
+  }
+
+  .giscus-frame {
+    p, span, div, li, td, th {
+      color: var(--md-on-surface) !important;
+    }
+
+    a {
+      color: var(--md-primary) !important;
+      &:hover { color: var(--md-secondary) !important; }
+    }
+
+    button, .btn {
+      color: var(--md-on-surface) !important;
+      background: var(--md-surface-3) !important;
+      border: 1px solid var(--md-outline-variant) !important;
+      
+      &:hover {
+        background: var(--md-primary-container) !important;
+        color: var(--md-on-primary-container) !important;
+      }
+    }
+
+    textarea, input {
+      color: var(--md-on-surface) !important;
+      background: var(--md-surface-1) !important;
+      border: 1px solid var(--md-outline-variant) !important;
+      
+      &:focus {
+        border-color: var(--md-primary) !important;
+        box-shadow: 0 0 0 3px var(--md-primary-container) !important;
+      }
+    }
+
+    .comment-body, .markdown-body {
+      color: var(--md-on-surface) !important;
+    }
+
+    .timestamp, time {
+      color: var(--md-on-surface-variant) !important;
+    }
+  }
+}
+
+// ============================================================
+//  RESPONSIVE
+// ============================================================
+@media (max-width: 768px) {
+  .giscus-wrapper {
+    padding: 1rem;
+    margin-top: 1.5rem;
+  }
+}
