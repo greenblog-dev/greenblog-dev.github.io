@@ -5,18 +5,32 @@
       <a itemprop="item" href="{{ '/' | relative_url }}"><span itemprop="name">Beranda</span></a>
       <meta itemprop="position" content="1">
     </li>
-    {% if page.categories.size > 0 and page.layout == 'post' %}
+    
+    {% if page.layout == 'post' and page.categories.size > 0 %}
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="{{ '/kategori/' | append: page.categories.first | slugify | append: '/' | relative_url }}">
+        <a itemprop="item" href="{{ '/kategori/?c=' | append: page.categories.first | slugify | relative_url }}">
           <span itemprop="name">{{ page.categories.first }}</span>
         </a>
         <meta itemprop="position" content="2">
       </li>
+    {% elsif page.url == '/kategori/' %}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+        <span itemprop="name">Kategori</span>
+        <meta itemprop="position" content="2">
+      </li>
+    {% elsif page.url == '/tags/' %}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+        <span itemprop="name">Tag</span>
+        <meta itemprop="position" content="2">
+      </li>
     {% endif %}
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
-      <span itemprop="name">{{ page.title }}</span>
-      <meta itemprop="position" content="3">
-    </li>
+    
+    {% unless page.url == '/kategori/' or page.url == '/tags/' %}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+        <span itemprop="name">{{ page.title }}</span>
+        <meta itemprop="position" content="3">
+      </li>
+    {% endunless %}
   </ol>
 </nav>
 {% endunless %}
