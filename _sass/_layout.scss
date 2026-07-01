@@ -5,8 +5,8 @@
   z-index: 9999 !important;
   background: var(--md-surface-1);
   border-bottom: 1px solid var(--md-outline-variant);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  // backdrop-filter: blur(12px); 
+ // -webkit-backdrop-filter: blur(12px);
 }
 
 .app-bar-inner {
