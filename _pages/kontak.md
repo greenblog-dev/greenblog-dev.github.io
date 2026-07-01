@@ -11,9 +11,9 @@ description: Hubungi kami untuk informasi, kerja sama, atau pertanyaan.
     <p>Kami terbuka untuk diskusi, kerja sama, maupun pertanyaan seputar kegiatan Karang Taruna.</p>
 
     <ul class="contact-list">
-      <li><span class="material-symbols-rounded">location_on</span><div><strong>Alamat</strong><br>Jl. Pemuda No. 17, Desa Sejahtera, Kec. Makmur, Kab. Sejahtera 12345</div></li>
+      <li><span class="material-symbols-rounded">location_on</span><div><strong>Alamat</strong><br>Dsn. Wonolobo Kel. Pandean, Kec. Ngablal, Kab. Magelang</div></li>
       <li><span class="material-symbols-rounded">mail</span><div><strong>Email</strong><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></div></li>
-      <li><span class="material-symbols-rounded">call</span><div><strong>Telepon</strong><br>+62 812-3456-7890</div></li>
+      <li><span class="material-symbols-rounded">call</span><div><strong>Telepon</strong><br>+62 858 7555 6123</div></li>
       <li><span class="material-symbols-rounded">schedule</span><div><strong>Jam Operasional</strong><br>Senin – Sabtu, 09:00 – 17:00 WIB</div></li>
     </ul>
   </div>
