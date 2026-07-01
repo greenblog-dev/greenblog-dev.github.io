@@ -27,19 +27,73 @@
     applyTheme(current === 'dark' ? 'light' : 'dark');
   });
 
-  // ---------- MOBILE MENU ----------
-  const menuToggle = document.querySelector('.menu-toggle');
-  const primaryNav = document.getElementById('primary-nav');
-  menuToggle?.addEventListener('click', () => {
-    const expanded = primaryNav.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', expanded);
-  });
-  document.addEventListener('click', (e) => {
-    if (!primaryNav?.contains(e.target) && !menuToggle?.contains(e.target)) {
-      primaryNav?.classList.remove('open');
-      menuToggle?.setAttribute('aria-expanded', 'false');
+  // ---------- MOBILE MENU (FIXED) ----------
+const menuToggle = document.querySelector('.menu-toggle');
+const menuToggleIcon = menuToggle?.querySelector('.material-symbols-rounded');
+const primaryNav = document.getElementById('primary-nav');
+const navBackdrop = document.getElementById('nav-backdrop');
+
+const openMenu = () => {
+  primaryNav?.classList.add('open');
+  navBackdrop?.classList.add('visible');
+  menuToggle?.setAttribute('aria-expanded', 'true');
+  if (menuToggleIcon) menuToggleIcon.textContent = 'close';
+  document.body.style.overflow = 'hidden'; // kunci scroll
+};
+
+const closeMenu = () => {
+  primaryNav?.classList.remove('open');
+  navBackdrop?.classList.remove('visible');
+  menuToggle?.setAttribute('aria-expanded', 'false');
+  if (menuToggleIcon) menuToggleIcon.textContent = 'menu';
+  document.body.style.overflow = '';
+};
+
+const toggleMenu = () => {
+  if (primaryNav?.classList.contains('open')) closeMenu();
+  else openMenu();
+};
+
+menuToggle?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  toggleMenu();
+});
+
+// Tutup saat klik backdrop
+navBackdrop?.addEventListener('click', closeMenu);
+
+// Tutup saat klik link di dalam menu
+primaryNav?.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// Tutup saat klik di luar menu (desktop & mobile)
+document.addEventListener('click', (e) => {
+  if (!primaryNav?.contains(e.target) &&
+      !menuToggle?.contains(e.target) &&
+      primaryNav?.classList.contains('open')) {
+    closeMenu();
+  }
+});
+
+// Tutup saat tekan ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && primaryNav?.classList.contains('open')) {
+    closeMenu();
+    menuToggle?.focus();
+  }
+});
+
+// Tutup otomatis saat resize ke desktop
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (window.innerWidth > 768 && primaryNav?.classList.contains('open')) {
+      closeMenu();
     }
-  });
+  }, 150);
+});
 
   // ---------- BACK TO TOP ----------
   const btt = document.getElementById('back-to-top');
