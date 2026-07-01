@@ -13,14 +13,17 @@ layout: default
     <div class="post-meta-container">
 
       
-<!-- Kategori chips -->
+<!-- 🔥 KATEGORI (FIXED) -->
 {% if page.categories.size > 0 %}
   <div class="post-categories">
     {% for cat in page.categories %}
-      <a href="{{ '/kategori/?c=' | append: cat | slugify | relative_url }}" class="md3-chip">{{ cat }}</a>
+      {% assign cat_slug = cat | slugify %}
+      <a href="{{ '/kategori/?c=' | append: cat_slug | relative_url }}" class="md3-chip">{{ cat }}</a>
     {% endfor %}
   </div>
 {% endif %}
+
+
 
       <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
 
@@ -42,12 +45,14 @@ layout: default
   </div>
 
   
-<!-- Tag chips -->
-{% if page.tags.size > 0 %}
+<!-- 🔥 TAGS (FIXED) -->
+{% if page.tags and page.tags.size > 0 %}
   <footer class="post-tags">
     <span class="material-symbols-rounded">sell</span>
+    <span class="tags-label">Tag:</span>
     {% for tag in page.tags %}
-      <a href="{{ '/tags/?t=' | append: tag | slugify | relative_url }}" class="md3-chip">#{{ tag }}</a>
+      {% assign tag_slug = tag | slugify %}
+      <a href="{{ '/tags/?t=' | append: tag_slug | relative_url }}" class="md3-chip">#{{ tag }}</a>
     {% endfor %}
   </footer>
 {% endif %}
@@ -57,4 +62,8 @@ layout: default
 </article>
 
 {% include schema.html %}
+
+
+
+
 
