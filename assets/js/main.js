@@ -231,3 +231,45 @@
   });
 
 })();
+
+
+// ============================================================
+//  GISCUS THEME SYNC — Real-time light/dark mode
+// ============================================================
+const syncGiscusTheme = () => {
+  const iframe = document.querySelector('iframe.giscus-frame');
+  if (!iframe) return;
+  
+  const theme = document.documentElement.getAttribute('data-theme');
+  const giscusTheme = theme === 'dark' ? 'dark' : 'light';
+  
+  iframe.contentWindow.postMessage({
+    giscus: {
+      setConfig: {
+        theme: giscusTheme
+      }
+    }
+  }, 'https://giscus.app');
+};
+
+// Sync saat Giscus load
+window.addEventListener('message', (event) => {
+  if (event.origin === 'https://giscus.app' && event.data.giscus) {
+    syncGiscusTheme();
+  }
+});
+
+// Sync saat theme berubah
+const observer = new MutationObserver(() => {
+  setTimeout(syncGiscusTheme, 100);
+});
+
+observer.observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ['data-theme']
+});
+
+// Initial sync setelah Giscus load
+setTimeout(syncGiscusTheme, 1000);
+setTimeout(syncGiscusTheme, 2000);
+setTimeout(syncGiscusTheme, 3000);
