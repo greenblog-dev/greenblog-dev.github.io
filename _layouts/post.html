@@ -11,14 +11,14 @@ layout: default
     {% endif %}
 
     <div class="post-meta-container">
-      <!-- Kategori chips -->
-{% if page.categories.size > 0 %}
-  <div class="post-categories">
-    {% for cat in page.categories %}
-      <a href="{{ '/kategori/?c=' | append: cat | slugify | relative_url }}" class="md3-chip">{{ cat }}</a>
-    {% endfor %}
-  </div>
-{% endif %}
+      <!-- 🔥 KATEGORI -->
+      {% if page.categories.size > 0 %}
+        <div class="post-categories">
+          {% for cat in page.categories %}
+            <a href="{{ '/kategori/?c=' | append: cat | slugify | relative_url }}" class="md3-chip">{{ cat }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
 
       <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
 
@@ -39,15 +39,16 @@ layout: default
     {{ content }}
   </div>
 
-<!-- Tag chips -->
-{% if page.tags.size > 0 %}
-  <footer class="post-tags">
-    <span class="material-symbols-rounded">sell</span>
-    {% for tag in page.tags %}
-      <a href="{{ '/tags/?t=' | append: tag | slugify | relative_url }}" class="md3-chip">#{{ tag }}</a>
-    {% endfor %}
-  </footer>
-{% endif %}
+  <!-- 🔥 TAGS — PASTI TAMPIL jika ada -->
+  {% if page.tags and page.tags.size > 0 %}
+    <footer class="post-tags">
+      <span class="material-symbols-rounded">sell</span>
+      <span class="tags-label">Tag:</span>
+      {% for tag in page.tags %}
+        <a href="{{ '/tags/?t=' | append: tag | slugify | relative_url }}" class="md3-chip">#{{ tag }}</a>
+      {% endfor %}
+    </footer>
+  {% endif %}
 
   {% include share.html %}
   {% include comments.html %}
