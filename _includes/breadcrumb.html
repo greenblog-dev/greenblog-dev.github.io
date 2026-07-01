@@ -7,9 +7,11 @@
     </li>
     
     {% if page.layout == 'post' and page.categories.size > 0 %}
+      {% assign first_cat = page.categories.first %}
+      {% assign first_cat_slug = first_cat | slugify %}
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="{{ '/kategori/?c=' | append: page.categories.first | slugify | relative_url }}">
-          <span itemprop="name">{{ page.categories.first }}</span>
+        <a itemprop="item" href="{{ '/kategori/?c=' | append: first_cat_slug | relative_url }}">
+          <span itemprop="name">{{ first_cat }}</span>
         </a>
         <meta itemprop="position" content="2">
       </li>
