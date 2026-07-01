@@ -2,7 +2,7 @@
 layout: post
 title: "Selamat Datang di Portal Resmi Karang Taruna"
 date: 2026-06-30 08:00:00 +0700
-categories: [Pengumuman, Berita]
+categories: [Pengumuman, Contoh post]
 tags: [karang-taruna, pemuda, desa-sejahtera]
 image: /assets/img/posts/welcome.jpg
 description: "Portal resmi Karang Taruna Desa Sejahtera kini hadir untuk melayani informasi kegiatan, program kerja, dan berita pemuda."
