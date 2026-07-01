@@ -22,6 +22,35 @@ description: Portal resmi Karang Taruna Dsn Wonolobo— berita, kegiatan, progra
   </div>
 </section>
 
+<!-- 🔥 PENGUMUMAN & AGENDA TERBARU DI BERANDA -->
+<section class="section quick-info">
+  <div class="quick-grid">
+    <div class="quick-col">
+      <h3 class="section-title"><span class="material-symbols-rounded">campaign</span> Pengumuman Terbaru</h3>
+      {% for post in site.categories.pengumuman limit: 2 %}
+        <a href="{{ post.url | relative_url }}" class="quick-item">
+          <span class="quick-date">{{ post.date | date: "%d %b" }}</span>
+          <span>{{ post.title }}</span>
+        </a>
+      {% endfor %}
+    </div>
+    <div class="quick-col">
+      <h3 class="section-title"><span class="material-symbols-rounded">event_upcoming</span> Agenda Mendatang</h3>
+      {% assign agendas = site.categories.agenda | sort: 'date' | reverse %}
+      {% for agenda in agendas limit: 2 %}
+        {% assign ed = agenda.event_date | default: agenda.date | date: "%Y-%m-%d" %}
+        {% assign today = 'now' | date: "%Y-%m-%d" %}
+        {% if ed >= today %}
+          <a href="{{ agenda.url | relative_url }}" class="quick-item">
+            <span class="quick-date">{{ agenda.event_date | default: agenda.date | date: "%d %b" }}</span>
+            <span>{{ agenda.title }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <section class="section" aria-labelledby="latest-title">
   <div class="section-header">
     <h2 id="latest-title" class="section-title">
