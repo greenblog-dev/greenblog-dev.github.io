@@ -4,7 +4,8 @@ title: Agenda
 permalink: /agenda/
 ---
 <div class="articles-grid">
-{% for post in site.categories.agenda limit: 10 %}
-  {% include article-card.html post=post %}
-{% endfor %}
-</div>
+{% assign items = site.categories.agenda | default: '' | split: '' %}
+{% if items.size > 0 %}
+  {% assign items = items | sort: 'date' %}
+  ...
+{% endif %}
