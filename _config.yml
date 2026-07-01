@@ -1,7 +1,7 @@
 title: Karang Taruna Dusun Wonolobo
 description: Portal resmi Karang Taruna Desa Sejahtera — Pemuda Berkarya, Desa Berjaya.
 url: https://greenblog-dev.github.io
-baseurl: ""
+baseurl: "/greenblog-dev.github.io"
 lang: id-ID
 timezone: Asia/Jakarta
 
