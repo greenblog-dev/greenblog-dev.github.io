@@ -11,7 +11,9 @@ layout: default
     {% endif %}
 
     <div class="post-meta-container">
-            <!-- Kategori chips -->
+
+      
+<!-- Kategori chips -->
 {% if page.categories.size > 0 %}
   <div class="post-categories">
     {% for cat in page.categories %}
@@ -39,7 +41,8 @@ layout: default
     {{ content }}
   </div>
 
-  <!-- Tag chips -->
+  
+<!-- Tag chips -->
 {% if page.tags.size > 0 %}
   <footer class="post-tags">
     <span class="material-symbols-rounded">sell</span>
@@ -48,8 +51,10 @@ layout: default
     {% endfor %}
   </footer>
 {% endif %}
+
   {% include share.html %}
   {% include comments.html %}
 </article>
 
 {% include schema.html %}
+
