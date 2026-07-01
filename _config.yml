@@ -1,12 +1,12 @@
 title: Karang Taruna Dusun Wonolobo
 description: Portal resmi Karang Taruna Desa Sejahtera — Pemuda Berkarya, Desa Berjaya.
 url: https://greenblog-dev.github.io
-baseurl: "/greenblog-dev.github.io"
+baseurl: ""
 lang: id-ID
 timezone: Asia/Jakarta
 
 # Author & Organization
-author: Karang Taruna
+author: Ahla Wisnu
 email: wisnudiary@gmail.com
 logo: /assets/img/logo.png
 
