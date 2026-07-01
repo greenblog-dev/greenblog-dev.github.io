@@ -43,10 +43,5 @@ description: Hubungi kami untuk informasi, kerja sama, atau pertanyaan.
 </div>
 
 <div class="map-container md3-surface-1">
-  <iframe
-    src="https://www.openstreetmap.org/export/embed.html?bbox=106.8,-6.2,106.9,-6.1&layer=mapnik"
-    loading="lazy"
-    title="Peta Lokasi Karang Taruna"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
+  <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=110.40048480033875%2C-7.393939991733655%2C110.40362298488618%2C-7.390907688648073&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?#map=18/-7.392424/110.402054">Lihat peta lebih besar</a></small>
 </div>
