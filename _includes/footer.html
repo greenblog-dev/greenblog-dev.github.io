@@ -3,6 +3,8 @@
     <div class="footer-col">
       <h3 class="footer-title">{{ site.title }}</h3>
       <p class="footer-about">{{ site.description }}</p>
+      
+    <!-- File Lama ✅
       <div class="social-links">
         {% for s in site.data.social %}
           <a href="{{ s.url }}" class="social-icon" aria-label="{{ s.name }}" target="_blank" rel="noopener">
@@ -11,6 +13,17 @@
         {% endfor %}
       </div>
     </div>
+      -->
+
+<!-- ✅ SESUDAH -->
+<div class="social-links">
+  {% for s in site.data.social %}
+    <a href="{{ s.url }}" class="social-icon" aria-label="{{ s.name }}" target="_blank" rel="noopener"
+       style="--icon-color: {{ s.color }}">
+      {% include social-icon.html name=s.icon %}
+    </a>
+  {% endfor %}
+</div>
 
     <div class="footer-col">
       <h4>Tautan Cepat</h4>
