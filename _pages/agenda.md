@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Agenda
-permalink: /agenda
+permalink: /agenda/
 ---
 <div class="articles-grid">
 {% for post in site.categories.agenda limit: 10 %}
