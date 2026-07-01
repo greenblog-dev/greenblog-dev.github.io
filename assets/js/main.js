@@ -23,6 +23,11 @@
   applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
 
   themeToggle?.addEventListener('click', () => {
+     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+themeToggleMobile?.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+});
     const current = document.documentElement.getAttribute('data-theme');
     applyTheme(current === 'dark' ? 'light' : 'dark');
   });
