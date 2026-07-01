@@ -9,13 +9,15 @@
     {% endif %}
   </a>
   <div class="card-body">
- {% if include.post.categories.size > 0 %}
+    {% if include.post.categories.size > 0 %}
   <div class="card-chips">
-    {% for cat in include.post.categories limit: 3 %}
-      <a href="{{ '/kategori/?c=' | append: cat | slugify | relative_url }}" class="md3-chip small">{{ cat }}</a>
+    {% for cat in include.post.categories limit: 2 %}
+      {% assign cat_slug = cat | slugify %}
+      <a href="{{ '/kategori/?c=' | append: cat_slug | relative_url }}" class="md3-chip small">{{ cat }}</a>
     {% endfor %}
   </div>
 {% endif %}
+
     
     <h3 class="card-title" itemprop="headline">
       <a href="{{ include.post.url | relative_url }}" itemprop="url">{{ include.post.title }}</a>
