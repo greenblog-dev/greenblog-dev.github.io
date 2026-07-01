@@ -1,24 +1,24 @@
 - name: Facebook
   icon: facebook
-  url: https://facebook.com/karangtaruna.sejahtera
+  url: https://facebook.com/yuna.arrr
   color: "#1877F2"
 - name: Instagram
   icon: instagram
-  url: https://instagram.com/karangtaruna.sejahtera
+  url: https://instagram.com/awvr.verse
   color: "#E4405F"
 - name: YouTube
   icon: youtube
-  url: https://youtube.com/@karangtaruna.sejahtera
+  url: https://youtube.com/@ahladigital_ai
   color: "#FF0000"
 - name: WhatsApp
   icon: whatsapp
-  url: https://wa.me/6281234567890
+  url: https://wa.me/6285875556123
   color: "#25D366"
 - name: Twitter / X
   icon: twitter
-  url: https://twitter.com/karangtaruna
+  url: https://twitter.com/username
   color: "#000000"
 - name: Email
   icon: mail
-  url: mailto:karangtaruna.sejahtera@gmail.com
+  url: mailto:wisnudiary@gmail.com
   color: "#0F9D58"
