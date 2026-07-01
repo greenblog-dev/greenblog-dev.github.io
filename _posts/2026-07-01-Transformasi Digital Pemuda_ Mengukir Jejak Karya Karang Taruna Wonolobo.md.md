@@ -3,7 +3,7 @@ layout: post
 title: "Transformasi Digital Pemuda: Mengukir Jejak Karya Karang Taruna Wonolobo"
 date: 2026-07-01 11:47:00 +0700
 categories: [Iklan, Adverse]
-tags: [tag1, tag2]
+tags: [baru blpg, blog baru]
 description: "Blog organisasi karang taruna wonolobo"
 ---
 
