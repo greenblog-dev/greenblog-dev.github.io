@@ -6,10 +6,7 @@ description: Jadwal kegiatan dan acara Karang Taruna Desa Sejahtera.
 ---
 
 {% comment %} 🔥 Case-insensitive agenda {% endcomment %}
-{% assign agenda_posts = site.posts | where_exp: "post", 
-  "post.categories contains 'Agenda' or 
-   post.categories contains 'agenda' or 
-   post.categories contains 'AGENDA'" %}
+{% assign agenda_posts = site.posts | where_exp: "post", "post.categories contains 'Agenda' or post.categories contains 'agenda' or post.categories contains 'AGENDA'" %}
 
 {% if agenda_posts and agenda_posts.size > 0 %}
   {% assign agendas = agenda_posts | sort: 'date' | reverse %}
